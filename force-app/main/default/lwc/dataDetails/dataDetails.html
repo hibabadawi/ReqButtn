@@ -1,0 +1,71 @@
+<!-- reqButton.html -->
+<template>
+    <div class="container">
+        <img src={imageUrl} alt="Background Image">
+        <div class="overlay">
+            <div class="left-content">
+            <div class="HeaderText">Africa Economics</div>
+            <div class="Paragraphtext"> Browse the data we have and request more details on how to add the needed data to
+                your workflow. </div>
+            </div>
+            <button class="ReqButton"  title="Request Details" onclick={showForm}> REQUEST DETAILS</button>
+        </div>
+        <template if:true={showFormFlag}>
+            <div class="popup">
+                <div class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Request Details</h2>
+                            <button class="close" onclick={hideForm}>&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="slds-col">
+                                    <lightning-input label="First Name" value={firstName}
+                                        placeholder="Enter your first name" required
+                                        onchange={handleFirstNameChange}></lightning-input>
+                                </div>
+                                <div class="slds-col">
+                                    <lightning-input label="Last Name" value={lastName}
+                                        placeholder="Enter your last name" required
+                                        onchange={handleLastNameChange}></lightning-input>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="slds-col">
+                                    <lightning-input label="Email" type="email" value={email}
+                                        placeholder="Enter your email" required
+                                        onchange={handleEmailChange}></lightning-input>
+                                </div>
+                                <div class="slds-col">
+                                    <lightning-input label="Phone" value={phone} placeholder="Enter your phone number"
+                                        required onchange={handlePhoneChange}></lightning-input>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="slds-col">
+                                    <lightning-input label="Country" value={country} placeholder="Enter your country"
+                                        required onchange={handleCountryChange}></lightning-input>
+                                </div>
+                                <div class="slds-col">
+                                    <lightning-input label="City" value={city} placeholder="Enter your city" required
+                                        onchange={handleCityChange}></lightning-input>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="slds-col">
+                                    <lightning-textarea label="Message" value={message} placeholder="Enter your message"
+                                        required onchange={handleMessageChange}></lightning-textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="submit-footer" onclick={handleSubmit}> SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="backdrop" onclick={hideForm}></div>
+            </div>
+        </template>
+    </div>
+</template>
